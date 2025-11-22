@@ -8,6 +8,14 @@
       "destination": "https://rep-dashboard-tawny.vercel.app/login"
     },
     {
+      "source": "/login/:path*",
+      "destination": "https://rep-dashboard-tawny.vercel.app/login/:path*"
+    },
+    {
+      "source": "/dashboard",
+      "destination": "https://rep-dashboard-tawny.vercel.app/dashboard"
+    },
+    {
       "source": "/dashboard/:path*",
       "destination": "https://rep-dashboard-tawny.vercel.app/dashboard/:path*"
     }
