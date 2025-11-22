@@ -1,4 +1,10 @@
+'use client';
+
+import { useState } from 'react';
+
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Header */}
@@ -20,7 +26,7 @@ export default function Home() {
             <nav className="hidden md:flex items-center gap-6">
               <a href="#how-it-works" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">How It Works</a>
               <a href="#benefits" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">Benefits</a>
-              <a href="#get-started" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-shadow">
+              <a href="/login" className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-shadow">
                 Get Started
               </a>
             </nav>
@@ -197,10 +203,16 @@ export default function Home() {
             <span className="block mt-3 font-semibold">Every sale deserves a celebration. 🎉</span>
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <button className="bg-white text-blue-600 px-10 py-5 rounded-full font-bold text-lg shadow-2xl hover:shadow-3xl hover:scale-105 transition-all transform">
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-white text-blue-600 px-10 py-5 rounded-full font-bold text-lg shadow-2xl hover:shadow-3xl hover:scale-105 transition-all transform"
+            >
               Start Rewarding Today 🚀
             </button>
-            <button className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-blue-600 transition-all shadow-lg">
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white hover:text-blue-600 transition-all shadow-lg"
+            >
               Let's Chat About It 💬
             </button>
           </div>
@@ -232,6 +244,54 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Contact Modal */}
+      {isModalOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div 
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="text-center">
+              <div className="mb-6">
+                <svg className="w-16 h-16 mx-auto text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Contact Us
+              </h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Contact us at{' '}
+                <a 
+                  href="mailto:info@TopShelfRewards.com" 
+                  className="text-blue-600 hover:text-blue-700 font-semibold underline"
+                >
+                  info@TopShelfRewards.com
+                </a>
+                {' '}if you would like a demo or more information!
+              </p>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-shadow"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
