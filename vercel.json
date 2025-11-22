@@ -1,6 +1,16 @@
 {
   "buildCommand": "next build",
   "outputDirectory": ".next",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "rewrites": [
+    {
+      "source": "/login",
+      "destination": "https://rep-dashboard-tawny.vercel.app/login"
+    },
+    {
+      "source": "/dashboard/:path*",
+      "destination": "https://rep-dashboard-tawny.vercel.app/dashboard/:path*"
+    }
+  ]
 }
 
