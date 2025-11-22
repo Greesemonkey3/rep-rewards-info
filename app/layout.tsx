@@ -9,9 +9,9 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: "Rep Rewards - Turn Sales Into Rewards | VIP Beverage Software",
+  title: "TopShelf Rewards - Turn Sales Into Rewards | VIP Beverage Software",
   description: "Transform your beverage representatives into treasure hunters! Reward your team with points based on sales performance. Seamlessly integrated with VIP Beverage Software.",
-  keywords: ["rep rewards", "beverage software", "VIP beverage", "sales rewards", "representative rewards", "employee rewards"],
+  keywords: ["topshelf rewards", "rep rewards", "beverage software", "VIP beverage", "sales rewards", "representative rewards", "employee rewards"],
 };
 
 export default function RootLayout({
